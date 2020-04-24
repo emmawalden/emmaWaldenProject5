@@ -1,0 +1,15 @@
+// Styling for the returned books images & descriptions
+
+img {
+    width: 200px;
+    height: auto;
+}
+
+.bookGallery {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 50px;
+    grid-auto-rows: 150px;
+    grid-auto-flow: dense;
+}

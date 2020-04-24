@@ -1,0 +1,13 @@
+h2 {
+    text-align: center;
+    padding: 70px 0 20px 0;
+}
+
+.bookSelect {
+    display: grid;
+    grid-template-rows: repeat(1, auto);
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+    grid-gap: 10px;
+    padding: 50px 0;
+}
