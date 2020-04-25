@@ -1,5 +1,6 @@
 html {
     font-size: 62.5%;
+    font-family: $mainFont;
 }
 
 ul {
@@ -22,9 +23,15 @@ a {
     }
 }
 
+main {
+    background-color: #FFEFEF;
+}
+
 // Start of font styling
 h1 {
-    font-size: 7rem;
+    font-size: 9rem;
+    font-family: $secondaryFont;
+    color: $mainColor;
     text-transform: uppercase;
 }
 

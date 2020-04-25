@@ -4,7 +4,7 @@ class Header extends Component {
     render() {
         return(
             <header>
-                <div className="wrapper">
+                <div className="headerContainer wrapper">
                     <h1>Bestsellers to Read</h1>
                 </div>
             </header>

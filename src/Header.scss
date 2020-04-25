@@ -1,9 +1,11 @@
 header {
-    text-align: center;
-    background: peachpuff;
+    background: $secondaryColor;
     height: 50vh;
 }
 
-h1 {
-    padding: 150px 0;
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
