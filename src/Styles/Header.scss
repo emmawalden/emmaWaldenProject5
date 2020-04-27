@@ -1,0 +1,21 @@
+header {
+    background: #E7EFF4;
+    height: 50vh;
+    border-bottom: 1px solid $mainColor;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    // books by Olga from the Noun Project
+    background-image: url(../assets/book.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 120px;
+}
+
+h1 {
+    padding-bottom: 130px;
+}

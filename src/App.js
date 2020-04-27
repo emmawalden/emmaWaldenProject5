@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.scss';
+import './Styles/App.scss';
 import Header from './Header.js';
+import Section from './Section.js';
+import Buttons from './Buttons.js';
+import Gallery from './Gallery.js';
 
 class App extends Component {
   constructor(){
@@ -36,7 +39,6 @@ class App extends Component {
 
   handleClick = (event) => {
     // figure out what button was clicked
-    console.log(event.target.id);
     // update the state 
     this.setState({
       urlCategory: event.target.id
@@ -49,31 +51,22 @@ class App extends Component {
       <>
       <Header />
         <main>
-          <section className="wrapper">
-            <h2>Looking for your next book to read? Choose a category below and browse the bestselling books per the <a href="https://www.nytimes.com/books/best-sellers/" aria-label="link to New York Times bestsellers list" rel="noopener" target="_blank">New York Times</a> make a list of the ones you want to read. </h2>
-          </section>
-          <ul className="bookSelect wrapper">
-            <li><button aria-label="click to generate non fiction books" id="combined-print-and-e-book-nonfiction" onClick={this.handleClick}>Non Fiction</button></li>
-            <li><button aria-label="click to generate fiction books" id="combined-print-and-e-book-fiction" onClick={this.handleClick}>Fiction</button></li>
-            <li><button aria-label="click to generate travel books" id="travel" onClick={this.handleClick}>Travel</button></li>
-            <li><button aria-label="click to generate sports books" id="sports" onClick={this.handleClick}>Sports</button></li>
-            <li><button aria-label="click to generate young adult books" id="young-adult-hardcover" onClick={this.handleClick}>Young Adult</button></li>
-            <li><button aria-label="click to generate books by comedians" id="humor" onClick={this.handleClick}>Comedy</button></li>
-            <li><button aria-label="click to generate books about business" id="business-books" onClick={this.handleClick}>Business</button></li>
-            <li><button aria-label="click to generate books about crime" id="crime-and-punishment" onClick={this.handleClick}>Crime & Law</button></li>
-          </ul>
+          {/* Intro section to the app */}
+          <Section />
+          {/* List of book categories to choose from that will populate new book images and descriptions */}
+          <Buttons changeBooks={this.handleClick}/>
 
-        <ul className="bookGallery wrapper">
-          {this.state.bookArray.map((book) => {
-  
-            return (
-              <li>
-                <img src={book.book_image} alt=""/>
-                <p>{book.description}</p>
-              </li>
-            );
-          })}
-        </ul>
+          {/* Gallery of book images and descriptions */}
+          <ul className="bookGallery wrapper">
+            {/* Mapping over the array of books from the API call */}
+            {this.state.bookArray.map((book) => {
+
+              // Displaying the book image and description to the page
+              return (
+                <Gallery key={book.bookTitle} bookImg={book.book_image} bookDescription={book.description} bookTitle={book.title} bookAuthor={book.author} />
+              );
+            })}
+          </ul>
         
       </main>
     </>
