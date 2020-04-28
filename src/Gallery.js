@@ -1,10 +1,10 @@
 import React from 'react';
 
 function Gallery(props) {
-    
+
     return (
-        <li>
-            <img src={props.bookImg} alt={props.bookTitle, props.bookAuthor}/>
+        <li tabIndex="0">
+            <img src={props.bookImg} alt={`${props.bookTitle} by ${props.bookAuthor}`}/>
             <p>{props.bookDescription}</p>
         </li>
     );

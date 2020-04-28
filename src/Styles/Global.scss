@@ -1,6 +1,7 @@
 html {
     font-size: 62.5%;
     font-family: $mainFont;
+    color: $mainColor;
 }
 
 ul {
@@ -31,7 +32,6 @@ main {
 h1 {
     font-size: 9rem;
     font-family: $secondaryFont;
-    color: $mainColor;
     text-transform: uppercase;
 }
 
@@ -40,7 +40,8 @@ a {
     font-size: 2.5rem;
 }
 
-button {
+button,
+p {
     font-size: 2rem;
 }
 

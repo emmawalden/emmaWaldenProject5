@@ -5,6 +5,8 @@ import Header from './Header.js';
 import Section from './Section.js';
 import Buttons from './Buttons.js';
 import Gallery from './Gallery.js';
+import Modal from './Modal.js';
+import Footer from './Footer.js';
 
 class App extends Component {
   constructor(){
@@ -59,16 +61,17 @@ class App extends Component {
           {/* Gallery of book images and descriptions */}
           <ul className="bookGallery wrapper">
             {/* Mapping over the array of books from the API call */}
-            {this.state.bookArray.map((book) => {
+            {this.state.bookArray.map((book, i) => {
 
               // Displaying the book image and description to the page
               return (
-                <Gallery key={book.bookTitle} bookImg={book.book_image} bookDescription={book.description} bookTitle={book.title} bookAuthor={book.author} />
+                <Gallery key={i} bookImg={book.book_image} bookDescription={book.description} bookTitle={book.title} bookAuthor={book.author} />
               );
             })}
+             <Modal />
           </ul>
-        
       </main>
+      <Footer />
     </>
     );
   } 

@@ -10,9 +10,15 @@
     grid-auto-flow: dense;
     justify-content: space-between;
     overflow: hidden;
+    padding-bottom: 50px;
         li {
             display: grid;
             max-width: 250px;
             max-height: 375px;
         }
+}
+
+.bookGallery li:hover,
+.bookGallery li:focus {
+    border: 1px solid $mainColor;
 }
