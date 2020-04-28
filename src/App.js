@@ -5,7 +5,6 @@ import Header from './Header.js';
 import Section from './Section.js';
 import Buttons from './Buttons.js';
 import Gallery from './Gallery.js';
-import Modal from './Modal.js';
 import Footer from './Footer.js';
 
 class App extends Component {
@@ -13,9 +12,11 @@ class App extends Component {
     super();
     this.state = {
       bookArray: [],
-      urlCategory: "hardcover-fiction"
+      urlCategory: "hardcover-fiction",
+      isShowing: false
     };
   }
+
 // Go get book information from API - NYT Books
   componentDidMount() {
     this.getBooks();
@@ -47,6 +48,20 @@ class App extends Component {
     }, () => this.getBooks());
   }
 
+  // Modal testing
+  openModalHandler = (event) => {
+    console.log(event.target.id);
+    this.setState({
+      isShowing: true
+    });
+  }
+
+  closeModalHandler = (event) => {
+    this.setState({
+      isShowing: false
+    });
+  }
+
   render() {
     // render list of best sellers images to page
     return (
@@ -65,10 +80,20 @@ class App extends Component {
 
               // Displaying the book image and description to the page
               return (
-                <Gallery key={i} bookImg={book.book_image} bookDescription={book.description} bookTitle={book.title} bookAuthor={book.author} />
+                <Gallery 
+                  key={book.id} 
+                  id={i}
+                  bookImg={book.book_image} 
+                  bookTitle={book.title} 
+                  bookAuthor={book.author} 
+                  bookDescription={book.description}
+                  // Props to display the modal
+                  show={this.state.isShowing}
+                  openModal={this.openModalHandler}
+                  closeModal={this.closeModalHandler}
+                />
               );
             })}
-             <Modal />
           </ul>
       </main>
       <Footer />

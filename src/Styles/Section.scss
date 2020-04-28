@@ -3,7 +3,7 @@ h2 {
     padding: 70px 0 20px 0;
 }
 
-button {
+.bookSelect button {
     background-color: $mainColor;
     color: #fff;
     border: 2px solid $mainColor;
@@ -12,8 +12,8 @@ button {
     width: 250px;
 }
 
-button:hover,
-button:focus {
+.bookSelect button:hover,
+.bookSelect button:focus {
     background-color: $secondaryColor;
     color: $mainColor;
     border: 2px solid $mainColor;

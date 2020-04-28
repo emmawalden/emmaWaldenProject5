@@ -26,8 +26,6 @@ function Buttons(props) {
                     >{button.name}</button>
                 </li>
                 )
-                // <li><button aria-label={buttonInfo.id} id="combined-print-and-e-book-nonfiction" onClick={props.changeBooks}>Non Fiction</button></li>
-                // )
             })}
         </ul>
     );
