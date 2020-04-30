@@ -7,6 +7,7 @@ import Buttons from './Buttons.js';
 import Gallery from './Gallery.js';
 import Modal from './Modal.js';
 import Footer from './Footer.js';
+import firebase from './firebase.js';
 
 class App extends Component {
   constructor(){
@@ -72,7 +73,7 @@ class App extends Component {
   }
 
   render() {
-         console.log(this.state.isShowing);   
+          
     return (
       <>
       <Header />
@@ -102,6 +103,7 @@ class App extends Component {
           <Modal 
             show={this.state.isShowing}
             selectedBook={this.state.selectedBook}
+            close={this.closeModalHandler}
           /> 
       </main>
       <Footer />
