@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './Styles/App.scss';
 import Header from './Header.js';
-import Section from './Section.js';
+import Intro from './Intro.js';
 import Buttons from './Buttons.js';
 import Gallery from './Gallery.js';
 import Modal from './Modal.js';
@@ -78,7 +78,7 @@ class App extends Component {
       <Header />
         <main>
           {/* Intro section to the app */}
-          <Section />
+          <Intro />
           {/* List of book categories to choose from that will populate new book images and descriptions */}
           <Buttons changeBooks={this.handleClick}/>
 

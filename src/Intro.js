@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Section extends Component { 
+class Intro extends Component { 
     render() {
         return (
             <section className="wrapper">
@@ -10,4 +10,4 @@ class Section extends Component {
     }
 }
 
-export default Section;
+export default Intro;
