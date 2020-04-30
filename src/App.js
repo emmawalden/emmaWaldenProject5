@@ -5,6 +5,7 @@ import Header from './Header.js';
 import Section from './Section.js';
 import Buttons from './Buttons.js';
 import Gallery from './Gallery.js';
+import Modal from './Modal.js';
 import Footer from './Footer.js';
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
     this.state = {
       bookArray: [],
       urlCategory: "hardcover-fiction",
-      isShowing: false
+      isShowing: false,
+      selectedBook: {}
     };
   }
 
@@ -48,22 +50,29 @@ class App extends Component {
     }, () => this.getBooks());
   }
 
-  // Modal testing
+  // Modal Functions - when a book is clicked or focused populate the description of that book
   openModalHandler = (event) => {
-    console.log(event.target.id);
+    // loop through your books array and use filter to filter out and return that particular book
+
+    const selectedBook = this.state.bookArray.filter((book) => {
+      return book.rank === parseInt(event.target.id) + 1
+    })
+    // once you have the book object - set that to the state
+
     this.setState({
-      isShowing: true
+      isShowing: true,
+      selectedBook: selectedBook[0]
     });
   }
 
-  closeModalHandler = (event) => {
+  closeModalHandler = () => {
     this.setState({
       isShowing: false
     });
   }
 
   render() {
-    // render list of best sellers images to page
+         console.log(this.state.isShowing);   
     return (
       <>
       <Header />
@@ -77,24 +86,23 @@ class App extends Component {
           <ul className="bookGallery wrapper">
             {/* Mapping over the array of books from the API call */}
             {this.state.bookArray.map((book, i) => {
-
-              // Displaying the book image and description to the page
+              // Displaying the book image to the page
               return (
                 <Gallery 
-                  key={book.id} 
+                  key={i} 
                   id={i}
                   bookImg={book.book_image} 
                   bookTitle={book.title} 
                   bookAuthor={book.author} 
-                  bookDescription={book.description}
-                  // Props to display the modal
-                  show={this.state.isShowing}
                   openModal={this.openModalHandler}
-                  closeModal={this.closeModalHandler}
                 />
               );
             })}
           </ul>
+          <Modal 
+            show={this.state.isShowing}
+            selectedBook={this.state.selectedBook}
+          /> 
       </main>
       <Footer />
     </>
