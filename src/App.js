@@ -19,10 +19,9 @@ class App extends Component {
       selectedBook: {},
       // empty array to store books to push to firebase
       savedBooks: [],
-      // what gets stored on click to push selected books into
-      userSelection: {}
+      
     };
-  }
+  };
 
 
   componentDidMount() {
@@ -35,12 +34,13 @@ class App extends Component {
     dbRef.on('value', (result) => {
       const newState = [];
       // Store the response from firebase in this variable
-      console.log(result.val());
       const data = result.val();
       // The data comes back in an object so we loop over it 
       for (let key in data) {
         // push each book to the new state array 
-        newState.push(data[key]);
+        newState.push({key: key, object: data[key]});
+        console.log("key", key);
+        console.log("data", data[key].book_image);
       }
       this.setState({
         // update the component's state using the newState array
@@ -50,7 +50,7 @@ class App extends Component {
       });
       
     
-  }
+  };
 
   getBooks = () => {
     const key = 'E1ntAP6SqFYuIsPBrhGwXxHj6xBbjTYV';
@@ -66,9 +66,9 @@ class App extends Component {
       this.setState({
         bookArray: res.data.results.books
         
-      })
-    })
-  }
+      });
+    });
+  };
 
   handleClick = (event) => {
     // figure out what button was clicked
@@ -80,7 +80,7 @@ class App extends Component {
 
   // Modal Functions - when a book is clicked or focused populate the description, title, image of that book in a modal
   openModalHandler = (event) => {
-    // loop through your books array and use filter to return that particular book that was clicked
+    // loop through the books array and use filter to return the particular book that was clicked
 
     const selectedBook = this.state.bookArray.filter((book) => {
       return book.rank === parseInt(event.target.id) + 1
@@ -104,12 +104,22 @@ class App extends Component {
 
   // This event will fire when there is a click to add a new book to the list
   handleSelect = (event) => {
-    const dbRef = firebase.database().ref()
-    dbRef.push(this.state.userSelection)
+    event.preventDefault();
+    const dbRef = firebase.database().ref();
+    dbRef.push(this.state.selectedBook);
+  
     this.setState({
-      userSelection: {}
-    })
+      isShowing: false
+    });
 
+  };
+
+  // Function to remove books from the saved Books array on click
+  removeBook(bookId) {
+    console.log(bookId);
+    const dbRef = firebase.database().ref();
+    dbRef.child(bookId).remove();
+    
   }
 
   render() {
@@ -149,19 +159,22 @@ class App extends Component {
           <section className="bookList">
             <div className="wrapper">
             <h5>Books To Read</h5>
-              <ul>   
+              <ul className="savedBooks">   
               {this.state.savedBooks.map((book) => {
-                return <li>{book}</li>
+                return <li key={book.key}>
+                  <img src={book.object.book_image} alt={`${book.object.title} by ${book.object.author}`}/><span onClick={() => this.removeBook(book.key)}>X</span>
+                  </li>
+                  
               })}
-              
-              </ul>
+                
+              </ul> 
             </div>
           </section>
       </main>
       <Footer />
     </>
     );
-  } 
-}
+  };
+};
 
 export default App;

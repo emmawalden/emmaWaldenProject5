@@ -4,7 +4,16 @@ h5 {
     text-align: center;
 }
 
-.bookList ul {
+.savedBooks {
     padding: 100px 0;
+    display: flex;
+    li {
+        padding: 10px;
+    }
+    img {
+        width: 100px;
+    }
 }
+
+
 
