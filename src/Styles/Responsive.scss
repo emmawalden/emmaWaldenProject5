@@ -44,20 +44,30 @@
 
     .bookSelect {
         padding: 0;
+    // Reducing padding on buttons
+        
     }
+    
     // reducing space between the books in the gallery
     .bookGallery {
         grid-gap: 20px;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 410px) {
     h2{
         padding: 25px 0;
     }
 
-    button {
-        padding: 5px 0;
-        width: 130px;
+    .bookSelect {
+        button {
+            padding: 5px 0;
+            width: 120px;
+        }
     }
+
+    .bookGallery {
+        grid-gap: 15px;
+    }
+
 }

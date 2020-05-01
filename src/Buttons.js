@@ -10,7 +10,7 @@ function Buttons(props) {
         { name: "Young Adult", id: "young-adult-hardcover", "aria-label": "click to generate young adult books" },
         { name: "Comedy", id: "humor", "aria-label": "click to generate comedy books" },
         { name: "Business", id: "business-books", "aria-label": "click to generate business books" },
-        { name: "Crime & Punishment", id: "crime-and-punishment", "aria-label": "click to generate crime & law books" },
+        { name: "Crime & Law", id: "crime-and-punishment", "aria-label": "click to generate crime & law books" },
 
     ]
     

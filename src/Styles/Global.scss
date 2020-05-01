@@ -24,20 +24,19 @@ a {
     transition: all 0.3s;
     &:hover,
     &:focus {
-    color: coral;
+    color: $secondaryColor;
     text-decoration: underline;
     }
 }
 
-footer {
+footer,
+.bookList {
     background-color: $background;
 }
 
 // Start of font styling
 h1 {
     font-size: 9rem;
-    font-family: $secondaryFont;
-    text-transform: uppercase;
 }
 
 h2,
@@ -46,9 +45,22 @@ h4 {
     font-size: 2.5rem;
 }
 
-button,
-p {
+h5 {
+    font-size: 4rem;
+}
+
+h1,
+h5 {
+    font-family: $secondaryFont;
+    text-transform: uppercase;
+}
+
+button {
     font-size: 2rem;
+}
+
+p {
+    font-size: 1.8rem;
 }
 
 .wrapper {

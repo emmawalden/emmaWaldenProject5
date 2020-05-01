@@ -16,19 +16,46 @@ class App extends Component {
       bookArray: [],
       urlCategory: "hardcover-fiction",
       isShowing: false,
-      selectedBook: {}
+      selectedBook: {},
+      // empty array to store books to push to firebase
+      savedBooks: [],
+      // what gets stored on click to push selected books into
+      userSelection: {}
     };
   }
 
-// Go get book information from API - NYT Books
+
   componentDidMount() {
+    // Go get book information from API - NYT Books
     this.getBooks();
+
+    // variable that references the firebase database
+    const dbRef = firebase.database().ref();
+    // event listener to fire every time there is a change in the database
+    dbRef.on('value', (result) => {
+      const newState = [];
+      // Store the response from firebase in this variable
+      console.log(result.val());
+      const data = result.val();
+      // The data comes back in an object so we loop over it 
+      for (let key in data) {
+        // push each book to the new state array 
+        newState.push(data[key]);
+      }
+      this.setState({
+        // update the component's state using the newState array
+        savedBooks: newState
+      })
+
+      });
+      
+    
   }
 
   getBooks = () => {
     const key = 'E1ntAP6SqFYuIsPBrhGwXxHj6xBbjTYV';
     const url = `https://api.nytimes.com/svc/books/v3/lists/current/${this.state.urlCategory}.json?api-key=E1ntAP6SqFYuIsPBrhGwXxHj6xBbjTYV`;
-    
+
     axios({
       method: 'GET',
       url: url,
@@ -51,25 +78,38 @@ class App extends Component {
     }, () => this.getBooks());
   }
 
-  // Modal Functions - when a book is clicked or focused populate the description of that book
+  // Modal Functions - when a book is clicked or focused populate the description, title, image of that book in a modal
   openModalHandler = (event) => {
-    // loop through your books array and use filter to filter out and return that particular book
+    // loop through your books array and use filter to return that particular book that was clicked
 
     const selectedBook = this.state.bookArray.filter((book) => {
       return book.rank === parseInt(event.target.id) + 1
     })
-    // once you have the book object - set that to the state
-
+  
+    
     this.setState({
+      // Modal is showing on the page
       isShowing: true,
+      // Set the selected book to state
       selectedBook: selectedBook[0]
     });
   }
 
   closeModalHandler = () => {
+    // Modal is not showing on the page
     this.setState({
       isShowing: false
     });
+  }
+
+  // This event will fire when there is a click to add a new book to the list
+  handleSelect = (event) => {
+    const dbRef = firebase.database().ref()
+    dbRef.push(this.state.userSelection)
+    this.setState({
+      userSelection: {}
+    })
+
   }
 
   render() {
@@ -104,7 +144,19 @@ class App extends Component {
             show={this.state.isShowing}
             selectedBook={this.state.selectedBook}
             close={this.closeModalHandler}
+            addToList={this.handleSelect}
           /> 
+          <section className="bookList">
+            <div className="wrapper">
+            <h5>Books To Read</h5>
+              <ul>   
+              {this.state.savedBooks.map((book) => {
+                return <li>{book}</li>
+              })}
+              
+              </ul>
+            </div>
+          </section>
       </main>
       <Footer />
     </>
