@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Header extends Component {
-    render() {
+function Header() {
         return(
             <header>
                 <div className="headerContainer wrapper">
@@ -9,7 +8,6 @@ class Header extends Component {
                 </div>
             </header>
         );
-    }
 }
 
 export default Header;

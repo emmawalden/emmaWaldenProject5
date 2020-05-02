@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       bookArray: [],
       urlCategory: "hardcover-fiction",
+      // whether the modal is showing or not
       isShowing: false,
       selectedBook: {},
       // empty array to store books to push to firebase
@@ -39,8 +40,6 @@ class App extends Component {
       for (let key in data) {
         // push each book to the new state array 
         newState.push({key: key, object: data[key]});
-        console.log("key", key);
-        console.log("data", data[key].book_image);
       }
       this.setState({
         // update the component's state using the newState array
@@ -79,15 +78,12 @@ class App extends Component {
   }
 
   // Modal Functions - when a book is clicked or focused populate the description, title, image of that book in a modal
-  openModalHandler = (event) => {
+  openModalHandler = (id) => {
     // loop through the books array and use filter to return the particular book that was clicked
-
     const selectedBook = this.state.bookArray.filter((book) => {
-      return book.rank === parseInt(event.target.id) + 1
-    })
-  
-    
-    this.setState({
+      return book.rank === parseInt(id) + 1
+    });
+    this.setState({ 
       // Modal is showing on the page
       isShowing: true,
       // Set the selected book to state
@@ -108,6 +104,7 @@ class App extends Component {
     const dbRef = firebase.database().ref();
     dbRef.push(this.state.selectedBook);
   
+    // If user clicks to add book to the list then close the modal
     this.setState({
       isShowing: false
     });
@@ -116,7 +113,6 @@ class App extends Component {
 
   // Function to remove books from the saved Books array on click
   removeBook(bookId) {
-    console.log(bookId);
     const dbRef = firebase.database().ref();
     dbRef.child(bookId).remove();
     
@@ -131,7 +127,7 @@ class App extends Component {
           {/* Intro section to the app */}
           <Intro />
           {/* List of book categories to choose from that will populate new book images and descriptions */}
-          <Buttons changeBooks={this.handleClick}/>
+          <Buttons handleClick={this.handleClick}/>
 
           {/* Gallery of book images and descriptions */}
           <ul className="bookGallery wrapper">
@@ -145,16 +141,16 @@ class App extends Component {
                   bookImg={book.book_image} 
                   bookTitle={book.title} 
                   bookAuthor={book.author} 
-                  openModal={this.openModalHandler}
+                  openModalHandler={this.openModalHandler} 
                 />
               );
             })}
           </ul>
           <Modal 
-            show={this.state.isShowing}
             selectedBook={this.state.selectedBook}
-            close={this.closeModalHandler}
-            addToList={this.handleSelect}
+            closeModalHandler={this.closeModalHandler}
+            isShowing={this.state.isShowing}
+            handleSelect={this.handleSelect}
           /> 
           <section className="bookList">
             <div className="wrapper">

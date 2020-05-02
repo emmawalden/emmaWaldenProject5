@@ -1,17 +1,19 @@
 import React from 'react';
 
-const Gallery = (props) => {
-    return (
-        <li tabIndex="0">
-            <img 
-            id={props.id}
-            src={props.bookImg} 
-            alt={`${props.bookTitle} by ${props.bookAuthor}`} 
-            onClick={props.openModal}
-            />
-            
-        </li>
-    );
+function Gallery(props) {
+    
+        return (
+            <li >
+                <button tabIndex="0" onClick={() => props.openModalHandler(props.id)}>
+                    <img 
+                        id={props.id}
+                        src={props.bookImg} 
+                        alt={`${props.bookTitle} by ${props.bookAuthor}`} 
+                        
+                    />
+                </button>
+            </li>
+        );
 }
 
 

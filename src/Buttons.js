@@ -22,7 +22,7 @@ function Buttons(props) {
                     <button
                     id={button.id}
                     aria-label={button["aria-label"]}
-                    onClick={props.changeBooks}
+                    onClick={props.handleClick}
                     >{button.name}</button>
                 </li>
                 )

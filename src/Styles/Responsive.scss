@@ -25,9 +25,11 @@
         font-size: 2rem;
     }
 
-    button {
-        padding: 5px 0;
-        width: 150px;
+    .bookSelect{
+        button {
+            padding: 5px 0;
+            width: 120px;
+        }
     }
 
     .wrapper {
@@ -41,33 +43,40 @@
         font-size: 4.5rem;
         text-align: center;
     }
-
-    .bookSelect {
-        padding: 0;
-    // Reducing padding on buttons
-        
-    }
-    
-    // reducing space between the books in the gallery
-    .bookGallery {
-        grid-gap: 20px;
-    }
-}
-
-@media (max-width: 410px) {
     h2{
         padding: 25px 0;
     }
 
     .bookSelect {
+        padding: 0;
         button {
             padding: 5px 0;
             width: 120px;
         }
     }
+    // reducing space between the books in the gallery
+    .bookGallery {
+        grid-gap: 20px;
+    }
+
+    .savedBooks {
+        img {
+            max-height: 140px;
+        }
+    }
+}
+
+@media (max-width: 410px) {
 
     .bookGallery {
         grid-gap: 15px;
     }
+}
 
+@media (max-width: 350px) {
+    .savedBooks {
+        img {
+            max-height: 100px;
+        }
+    }
 }
