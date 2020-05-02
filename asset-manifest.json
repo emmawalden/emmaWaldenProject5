@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/emmaWaldenProject5/static/css/main.99140872.chunk.css",
-    "main.js": "/emmaWaldenProject5/static/js/main.df0b955c.chunk.js",
-    "main.js.map": "/emmaWaldenProject5/static/js/main.df0b955c.chunk.js.map",
+    "main.css": "/emmaWaldenProject5/static/css/main.4b7a550e.chunk.css",
+    "main.js": "/emmaWaldenProject5/static/js/main.fcd3262c.chunk.js",
+    "main.js.map": "/emmaWaldenProject5/static/js/main.fcd3262c.chunk.js.map",
     "runtime-main.js": "/emmaWaldenProject5/static/js/runtime-main.2ce94621.js",
     "runtime-main.js.map": "/emmaWaldenProject5/static/js/runtime-main.2ce94621.js.map",
     "static/js/2.8e8e50e6.chunk.js": "/emmaWaldenProject5/static/js/2.8e8e50e6.chunk.js",
     "static/js/2.8e8e50e6.chunk.js.map": "/emmaWaldenProject5/static/js/2.8e8e50e6.chunk.js.map",
     "index.html": "/emmaWaldenProject5/index.html",
-    "precache-manifest.f088bb71a356b2b9b97802eb67dd5071.js": "/emmaWaldenProject5/precache-manifest.f088bb71a356b2b9b97802eb67dd5071.js",
+    "precache-manifest.0de393bdfb1d192cace6ea037dd373e0.js": "/emmaWaldenProject5/precache-manifest.0de393bdfb1d192cace6ea037dd373e0.js",
     "service-worker.js": "/emmaWaldenProject5/service-worker.js",
-    "static/css/main.99140872.chunk.css.map": "/emmaWaldenProject5/static/css/main.99140872.chunk.css.map",
+    "static/css/main.4b7a550e.chunk.css.map": "/emmaWaldenProject5/static/css/main.4b7a550e.chunk.css.map",
     "static/js/2.8e8e50e6.chunk.js.LICENSE.txt": "/emmaWaldenProject5/static/js/2.8e8e50e6.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/emmaWaldenProject5/static/media/book.8bd6d8ba.svg",
     "static/media/close.svg": "/emmaWaldenProject5/static/media/close.d0301819.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.2ce94621.js",
     "static/js/2.8e8e50e6.chunk.js",
-    "static/css/main.99140872.chunk.css",
-    "static/js/main.df0b955c.chunk.js"
+    "static/css/main.4b7a550e.chunk.css",
+    "static/js/main.fcd3262c.chunk.js"
   ]
 }
