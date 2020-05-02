@@ -1,10 +1,10 @@
 import React from 'react';
-import close from './assets/close.svg'
+import close from './assets/close.svg';
 
 // Function component to show the modal on the page using the .filter() to display only the content of the book that is clicked or focused
 
 const Modal = (props) => {
-    console.log(props);
+    
     const modal = props.selectedBook;
     
     return(
@@ -17,7 +17,7 @@ const Modal = (props) => {
                         <h4>{`${modal.title} by ${modal.author}`}</h4>
                         <p>{modal.description}</p>
                         <img value={modal.book_image}className="book" src={modal.book_image} alt={`${modal.title} by ${modal.author}`}/>
-                        <button onClick={(event) => props.handleSelect(event)}>Add book to list</button>
+                        <button onClick={(event) => props.handleSelect(event)}><i class="far fa-heart"></i>Add to list</button>
                     </div>
                     </div>
                 : null

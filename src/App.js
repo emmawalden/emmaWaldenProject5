@@ -83,6 +83,7 @@ class App extends Component {
     const selectedBook = this.state.bookArray.filter((book) => {
       return book.rank === parseInt(id) + 1
     });
+    
     this.setState({ 
       // Modal is showing on the page
       isShowing: true,
@@ -158,8 +159,14 @@ class App extends Component {
               <ul className="savedBooks">   
               {this.state.savedBooks.map((book) => {
                 return <li key={book.key}>
-                  <img src={book.object.book_image} alt={`${book.object.title} by ${book.object.author}`}/><span onClick={() => this.removeBook(book.key)}>X</span>
-                  </li>
+                          <i
+                          aria-label="close"
+                          onClick={() => this.removeBook(book.key)} className="fas fa-times"></i>
+                          <img 
+                          src={book.object.book_image} 
+                          alt={`${book.object.title} by ${book.object.author}`} />
+                        </li>
+                  
                   
               })}
                 

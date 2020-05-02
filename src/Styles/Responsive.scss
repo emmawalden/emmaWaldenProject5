@@ -59,6 +59,11 @@
         grid-gap: 20px;
     }
 
+    // Centering modal description
+    .modalContent p {
+        text-align: center;
+    }
+
     .savedBooks {
         img {
             max-height: 140px;
@@ -71,6 +76,26 @@
     .bookGallery {
         grid-gap: 15px;
     }
+// Decreasing padding and font sise in the modal
+    .modalContent h4,
+    .modalContent p {
+    padding-bottom: 20px;
+}
+
+    .modalContent {
+        h4 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.6rem;
+        }
+    }
+
+    .book {
+        width: 100px;
+
+    }
+
 }
 
 @media (max-width: 350px) {

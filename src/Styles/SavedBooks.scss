@@ -9,10 +9,26 @@ h5 {
     display: flex;
     li {
         padding: 10px;
+        position: relative;
+        
     }
     img {
         width: 100px;
+        
     }
+}
+
+.savedBooks i {
+    font-size: 1.8rem;
+    color: darken($secondaryColor, 7%);
+    position: absolute;
+    top: 10px;
+    left: 13px;
+}
+
+.savedBooks i:hover,
+.savedBooks i:focus {
+    color: $mainColor;
 }
 
 
