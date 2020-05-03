@@ -6,6 +6,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1;
   display: flex;
     justify-content: center;
     align-items: center;
@@ -17,14 +18,10 @@
     align-items: center;
     padding: 50px;
     max-height: 90vh;
-    width: 50%;
+    width: 40%;
     border: 2px solid $mainColor;
     border-radius: 5px;
     position: relative;
-}
-
-h4 {
-    text-align: center;
 }
 
 .modalContent h4,
@@ -59,7 +56,7 @@ h4 {
 }
 
 .modalContent i {
-    color: red;
+    color: darken($accentColor, 10%);
     font-size: 3rem;
     display: block;
 

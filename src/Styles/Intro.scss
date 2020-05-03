@@ -1,5 +1,4 @@
 h2 {
-    text-align: center;
     padding: 70px 0 20px 0;
 }
 
@@ -14,7 +13,7 @@ h2 {
 
 .bookSelect button:hover,
 .bookSelect button:focus {
-    background-color: $secondaryColor;
+    background-color: $accentColor;
     color: $mainColor;
     border: 2px solid $mainColor;
 }

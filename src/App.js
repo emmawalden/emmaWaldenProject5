@@ -7,6 +7,7 @@ import Buttons from './Buttons.js';
 import Gallery from './Gallery.js';
 import Modal from './Modal.js';
 import Footer from './Footer.js';
+import SavedBooks from './SavedBooks.js';
 import firebase from './firebase.js';
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
     super();
     this.state = {
       bookArray: [],
-      urlCategory: "hardcover-fiction",
+      urlCategory: "combined-print-and-e-book-fiction",
       // whether the modal is showing or not
       isShowing: false,
       selectedBook: {},
@@ -126,54 +127,50 @@ class App extends Component {
           
     return (
       <>
-      <Header />
+        <Header />
         <main>
-          {/* Intro section to the app */}
           <Intro />
           {/* List of book categories to choose from that will populate new book images and descriptions */}
           <Buttons handleClick={this.handleClick}/>
-
           {/* Gallery of book images and descriptions */}
-          <ul className="bookGallery wrapper">
-            {/* Mapping over the array of books from the API call */}
-            {this.state.bookArray.map((book, i) => {
-              // Displaying the book image to the page
-              return (
-                <Gallery 
-                  key={i} 
-                  id={i}
-                  bookImg={book.book_image} 
-                  bookTitle={book.title} 
-                  bookAuthor={book.author} 
-                  openModalHandler={this.openModalHandler} 
-                />
-              );
-            })}
-          </ul>
+            <ul className="bookGallery wrapper">
+              {/* Mapping over the array of books from the API call */}
+              {this.state.bookArray.map((book, i) => {
+                // Displaying the book image to the page
+                return (
+                  <Gallery 
+                    key={i} 
+                    id={i}
+                    bookImg={book.book_image} 
+                    bookTitle={book.title} 
+                    bookAuthor={book.author} 
+                    openModalHandler={this.openModalHandler} 
+                  />
+                );
+              })}
+            </ul>
+          {/* On click of a selected book a modal populates with information about the chosen book */}
           <Modal 
             selectedBook={this.state.selectedBook}
             closeModalHandler={this.closeModalHandler}
             isShowing={this.state.isShowing}
             handleSelect={this.handleSelect}
           /> 
-          <section className="bookList">
+          {/* Section at the bottom of the page where the saved books populate */}
+          <section className="bookList" >
             <div className="wrapper">
-            <h5>Books To Read</h5>
-              <ul className="savedBooks">   
-              {this.state.savedBooks.map((book) => {
-                return <li key={book.key}>
-                          <i
-                          aria-label="close"
-                          onClick={() => this.removeBook(book.key)} className="fas fa-times"></i>
-                          <img 
-                          src={book.object.book_image} 
-                          alt={`${book.object.title} by ${book.object.author}`} />
-                        </li>
-                  
-                  
-              })}
-                
-              </ul> 
+              <h5>Books To Read</h5>
+              <ul className="savedBooks">
+                {this.state.savedBooks.map((book) => {
+                  return (<SavedBooks 
+                    key={book.key}
+                    id={book.key}
+                    bookSrc={book.object.book_image}
+                    bookalt={`${book.object.title} by ${book.object.author}`}
+                    removeBook={this.removeBook}
+                  />)
+                })} 
+              </ul>
             </div>
           </section>
       </main>

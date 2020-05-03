@@ -1,4 +1,4 @@
-// Styling for the returned books images & descriptions
+// Styling for the returned books images & descriptions from the API
 
 .bookGallery {
     display: grid;
@@ -18,17 +18,19 @@
             max-width: 250px;
             max-height: 375px; 
         }
-        
         button {
-            width: 100%;
-            height: 100%;
             background-color: transparent;
             border: none;
         }
         img {
-            width: 100%;
-            height: 100%;
+            border: 1px solid transparent;
         }
+}
+
+.bookGallery button,
+.bookGallery img {
+    width: 100%;
+    height: 100%;
 }
 
 .bookGallery img:hover,

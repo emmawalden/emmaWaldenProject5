@@ -5,6 +5,12 @@
     h1 {
         font-size: 8rem;
     }
+    .savedBooks {
+        li {
+            max-width: 175px;
+            max-height: 275px; 
+        }
+}
 }
 
 @media (max-width: 900px) {
@@ -13,9 +19,22 @@
         width: 180px;
         font-size: 1.8rem;
     }
+    .savedBooks {
+    padding: 50px 0;
+    // reducing size of the x to remove a saved book
+        i {
+            font-size: 2rem;
+        }
+        li {
+           max-width: 125px;
+           max-height: 225px 
+        }
+    }
+    
 }
 
 @media (max-width: 795px) {
+    // decreasing the font-sizes
     h1 {
         font-size: 6rem;
     }
@@ -24,7 +43,7 @@
     a {
         font-size: 2rem;
     }
-
+    // reducing the size of the buttons
     .bookSelect{
         button {
             padding: 5px 0;
@@ -47,12 +66,13 @@
         padding: 25px 0;
     }
 
+    h5 {
+        padding-top: 25px;
+    }
+
+    // reducing padding around the buttons
     .bookSelect {
         padding: 0;
-        button {
-            padding: 5px 0;
-            width: 120px;
-        }
     }
     // reducing space between the books in the gallery
     .bookGallery {
@@ -64,9 +84,15 @@
         text-align: center;
     }
 
+    h5 {
+    font-size: 3rem;
+    }
+
     .savedBooks {
-        img {
-            max-height: 140px;
+    padding: 25px 0;
+        li {
+        max-width: 95px;
+        max-height: 145px 
         }
     }
 }
@@ -91,17 +117,22 @@
         }
     }
 
+    // reducing size of the book on the modal
     .book {
         width: 100px;
 
     }
 
+    .savedBooks i {
+    font-size: 1rem;
+    }
+
+
 }
 
-@media (max-width: 350px) {
-    .savedBooks {
-        img {
-            max-height: 100px;
-        }
+@media (max-width: 320px) {
+.savedBooks li  {
+    max-width: 70px;
+    max-height: 100px 
     }
 }

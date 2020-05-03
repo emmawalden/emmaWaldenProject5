@@ -4,7 +4,7 @@ function Footer() {
 
     return (
         <footer>
-            <p>Emma Walden 2020</p>
+            <p>© Emma Walden 2020</p>
         </footer>
     );
 }

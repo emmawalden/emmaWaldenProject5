@@ -4,12 +4,15 @@ import close from './assets/close.svg';
 // Function component to show the modal on the page using the .filter() to display only the content of the book that is clicked or focused
 
 class Modal extends Component {
+
+   
 // Modal will close when the escape key is pressed
-    onKeyUp = (e) => {
-        if (e.which === 27) {
-            this.props.closeModalHandler(e)
-        }
+    onKeyUp = (event) => {
+        if (event.which === 27) {
+            this.props.closeModalHandler(event)
+        } 
     }
+
     componentDidMount() {
         document.addEventListener("keyup", this.onKeyUp);
     }
@@ -17,7 +20,7 @@ class Modal extends Component {
     componentWillUnmount() {
         document.removeEventListener("keyup", this.onKeyUp)
     }
-    
+
     render() {
         const modal = this.props.selectedBook;
     return(
@@ -30,7 +33,7 @@ class Modal extends Component {
                         <h4>{`${modal.title} by ${modal.author}`}</h4>
                         <p>{modal.description}</p>
                         <img value={modal.book_image}className="book" src={modal.book_image} alt={`${modal.title} by ${modal.author}`}/>
-                        <button onClick={(event) => this.props.handleSelect(event)}><i className="far fa-heart"></i>Add to list</button>
+                        <button onClick={(event) => this.props.handleSelect(event)}><i tabIndex="2" className="fas fa-heart"></i>Add to list</button>
                     </div>
                     </div>
                 : null
