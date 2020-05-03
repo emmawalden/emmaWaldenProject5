@@ -27,6 +27,7 @@ class App extends Component {
 
   componentDidMount() {
     // Go get book information from API - NYT Books
+    
     this.getBooks();
 
     // variable that references the firebase database
@@ -93,10 +94,12 @@ class App extends Component {
   }
 
   closeModalHandler = () => {
-    // Modal is not showing on the page
-    this.setState({
-      isShowing: false
-    });
+    
+      // Modal is not showing on the page
+      this.setState({
+        isShowing: false
+      });
+      
   }
 
   // This event will fire when there is a click to add a new book to the list
