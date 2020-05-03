@@ -160,6 +160,10 @@ class App extends Component {
           <section className="bookList" >
             <div className="wrapper">
               <h5>Books To Read</h5>
+              {/* When the saved books list is empty display a message */}
+              {this.state.savedBooks.length === 0
+                ? <h6>There are no books in your list yet, click on a book to add it to your list!</h6>
+                : null}
               <ul className="savedBooks">
                 {this.state.savedBooks.map((book) => {
                   return (<SavedBooks 
