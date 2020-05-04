@@ -79,13 +79,8 @@
         grid-gap: 20px;
     }
 
-    // Centering modal description
-    .modalContent p {
-        text-align: center;
-    }
-
     h5 {
-    font-size: 3rem;
+        font-size: 3rem;
     }
 
     .savedBooks {
@@ -98,7 +93,6 @@
 }
 
 @media (max-width: 410px) {
-
     .bookGallery {
         grid-gap: 15px;
     }
@@ -106,7 +100,7 @@
     .modalContent h4,
     .modalContent p {
     padding-bottom: 20px;
-}
+    }
 
     .modalContent {
         h4 {

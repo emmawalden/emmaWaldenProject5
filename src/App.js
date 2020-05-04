@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Styles/App.scss';
-import Header from './Header.js';
-import Intro from './Intro.js';
-import Buttons from './Buttons.js';
-import Gallery from './Gallery.js';
-import Modal from './Modal.js';
-import Footer from './Footer.js';
-import SavedBooks from './SavedBooks.js';
-import firebase from './firebase.js';
+import Header from './Components/Header.js';
+import Intro from './Components/Intro.js';
+import Buttons from './Components/Buttons.js';
+import Gallery from './Components/Gallery.js';
+import Modal from './Components/Modal.js';
+import Footer from './Components/Footer.js';
+import SavedBooks from './Components/SavedBooks.js';
+import firebase from './Components/firebase.js';
 
 class App extends Component {
   constructor(){
@@ -21,6 +21,7 @@ class App extends Component {
       selectedBook: {},
       // empty array to store books to push to firebase
       savedBooks: [],
+      
       
     };
   };

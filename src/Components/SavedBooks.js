@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 class SavedBooks extends Component {
 
-// When escape or enter are pressed on a saved book it will remove it from the list
+// When enter is pressed on a saved book that has been tabbed to it will remove it from the list
 onKeyUp = (event) => {
-    if (event.which === 27 || event.which === 13) {
+    if (event.which === 13 && this.props.bookSrc === event.srcElement.lastChild.src) {
         this.props.removeBook(this.props.id)
     }
 }
@@ -22,7 +22,8 @@ render () {
         <li tabIndex="0">
             <i
             aria-label="close"
-            onClick={() => this.props.removeBook(this.props.id)} className="fas fa-times">
+            onClick={() => this.props.removeBook(this.props.id)}
+            className="fas fa-times">
             </i>
             <img
             src={this.props.bookSrc}

@@ -20,7 +20,8 @@
         }
         button {
             background-color: transparent;
-            border: none;
+            border: 1px solid transparent;
+            padding: 10px 5px;
         }
         img {
             border: 1px solid transparent;
@@ -33,9 +34,10 @@
     height: 100%;
 }
 
-.bookGallery img:hover,
-.bookGallery img:focus {
+.bookGallery button:hover,
+.bookGallery button:focus {
     border: 1px solid $mainColor;
+    padding: 10px 5px;
 }
 
 

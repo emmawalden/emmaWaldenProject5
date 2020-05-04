@@ -24,22 +24,6 @@ a {
     }
 }
 
-// Background colours
-
-main,
-.modalContent {    
-    background-color: #FFEFEF;
-}
-
-.bookList, 
-header {
-    background-color: $background;
-}
-
-footer {
-    background-color: darken($background, 20%);
-}
-
 // Start of font styling
 h1 {
     font-size: 9rem;
@@ -72,7 +56,8 @@ h5 {
 
 h2,
 h4,
-h6 {
+h6,
+.modalContent p {
     text-align: center;
 }
 
@@ -80,4 +65,20 @@ h6 {
     width: 90%;
     max-width: 1180px;
     margin: 0 auto;
+}
+
+// Background colours
+
+main,
+.modalContent {    
+    background-color: #FFEFEF;
+}
+
+.bookList, 
+header {
+    background-color: $background;
+}
+
+footer {
+    background-color: darken($background, 20%);
 }
