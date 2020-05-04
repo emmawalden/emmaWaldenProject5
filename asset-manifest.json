@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/emmaWaldenProject5/static/css/main.ea17ee5b.chunk.css",
+    "main.css": "/emmaWaldenProject5/static/css/main.4d0f176f.chunk.css",
     "main.js": "/emmaWaldenProject5/static/js/main.9c55765d.chunk.js",
     "main.js.map": "/emmaWaldenProject5/static/js/main.9c55765d.chunk.js.map",
     "runtime-main.js": "/emmaWaldenProject5/static/js/runtime-main.2ce94621.js",
@@ -8,9 +8,9 @@
     "static/js/2.aa73642c.chunk.js": "/emmaWaldenProject5/static/js/2.aa73642c.chunk.js",
     "static/js/2.aa73642c.chunk.js.map": "/emmaWaldenProject5/static/js/2.aa73642c.chunk.js.map",
     "index.html": "/emmaWaldenProject5/index.html",
-    "precache-manifest.443486d66ca09cda42fc36bf99f6c863.js": "/emmaWaldenProject5/precache-manifest.443486d66ca09cda42fc36bf99f6c863.js",
+    "precache-manifest.33b825e16de79fac0fc195fd64113f92.js": "/emmaWaldenProject5/precache-manifest.33b825e16de79fac0fc195fd64113f92.js",
     "service-worker.js": "/emmaWaldenProject5/service-worker.js",
-    "static/css/main.ea17ee5b.chunk.css.map": "/emmaWaldenProject5/static/css/main.ea17ee5b.chunk.css.map",
+    "static/css/main.4d0f176f.chunk.css.map": "/emmaWaldenProject5/static/css/main.4d0f176f.chunk.css.map",
     "static/js/2.aa73642c.chunk.js.LICENSE.txt": "/emmaWaldenProject5/static/js/2.aa73642c.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/emmaWaldenProject5/static/media/book.8bd6d8ba.svg",
     "static/media/close.svg": "/emmaWaldenProject5/static/media/close.d0301819.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.2ce94621.js",
     "static/js/2.aa73642c.chunk.js",
-    "static/css/main.ea17ee5b.chunk.css",
+    "static/css/main.4d0f176f.chunk.css",
     "static/js/main.9c55765d.chunk.js"
   ]
 }
