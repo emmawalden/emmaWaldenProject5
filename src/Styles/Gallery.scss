@@ -34,7 +34,11 @@
     height: 100%;
 }
 
-.bookGallery button:hover,
+.bookGallery button:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
 .bookGallery button:focus {
     border: 1px solid $mainColor;
     padding: 10px 5px;

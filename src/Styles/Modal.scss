@@ -50,13 +50,17 @@
     font-size: 1.6rem;
 }
 
-.modalContent button:focus {
-    border: 1px solid $mainColor;
-}
-
 .modalContent i {
     color: darken($accentColor, 10%);
     font-size: 3rem;
     display: block;
 
+}
+
+.modalContent i:hover {
+    color: darken($accentColor, 15%);
+}
+
+.modalContent button:focus {
+    border: 1px solid darken($accentColor, 10%);
 }
