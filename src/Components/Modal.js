@@ -43,13 +43,15 @@ import close from '../assets/close.svg';
                         <h4><span>{modal.title}</span> by {modal.author}</h4>
                         <p>{modal.description}</p>
                         <img value={modal.book_image}className="book" src={modal.book_image} alt={`${modal.title} by ${modal.author}`}/>
-                        <button ref={this.setRef} onKeyUp={this.focusButton} onClick={(event) => this.props.handleSelect(event)}><i tabIndex="1" className="fas fa-heart" ></i>Add to list</button>
-
-
+                        <button ref={this.setRef} onKeyUp={this.focusButton} 
+                        onClick={(event) => {
+                            this.props.duplicateBook();
+                            this.props.handleSelect(event);
+                        }}><i tabIndex="1" className="fas fa-heart" ></i>Add to list</button>
                     </div>
                  </div>
                 : null
-         }
+            }
 
     </div>  
     )

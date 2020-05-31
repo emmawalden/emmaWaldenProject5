@@ -108,14 +108,24 @@ class App extends Component {
   handleSelect = (event) => {
     event.preventDefault();
     const dbRef = firebase.database().ref();
-    dbRef.push(this.state.selectedBook);
-  
+    dbRef.push(this.state.selectedBook); 
     // If user clicks to add book to the list then close the modal
     this.setState({
       isShowing: false
     });
-
   };
+
+  // If a book is already in the saved books list and a user tries to add it again alert and do not add to the list
+  duplicateBook = () => {
+    const dbRef = firebase.database().ref();
+    this.state.savedBooks.forEach((book) => {
+      if (book.object.title === this.state.selectedBook.title) {
+        alert("This book is already in your list");
+        dbRef.child(book.key).remove();
+      } 
+    });
+  }
+
 
   // Function to remove books from the saved Books array on click
   removeBook(bookId) {
@@ -156,6 +166,7 @@ class App extends Component {
             closeModalHandler={this.closeModalHandler}
             isShowing={this.state.isShowing}
             handleSelect={this.handleSelect}
+            duplicateBook={this.duplicateBook}
           /> 
           {/* Section at the bottom of the page where the saved books populate */}
           <section className="bookList" >
@@ -167,6 +178,7 @@ class App extends Component {
                 : null}
               <ul className="savedBooks">
                 {this.state.savedBooks.map((book) => {
+
                   return (<SavedBooks 
                     key={book.key}
                     id={book.key}
